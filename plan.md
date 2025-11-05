@@ -1,6 +1,21 @@
+# Sample
+```txt
+==========
+﻿CCNP and CCIE Enterprise Core ENCOR 350-401  
+- Your Highlight on page 84-84 | Added on Monday, September 15, 2025 8:25:37 PM
+
+MST Configuration MST is configured using the following process
+==========
+﻿CCNP and CCIE Enterprise Core ENCOR 350-401  
+- Your Note on page 84 | Added on Monday, September 15, 2025 8:25:58 PM
+
+Copy and understand
+==========
+```
+
 # Parse Headers
 - use ========== as seperator 
-- use the 1st line after to get the title
+-tuse the 1st line after to get the title
     - store the title if it already appears
         1. search 
             - types of approaches

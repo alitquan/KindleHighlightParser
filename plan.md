@@ -29,3 +29,22 @@ Copy and understand
 - create a hash from the 2nd line to store as a prefix 
 - 3rd line is space 
 - line after space -- use as body 
+
+
+# Organizing the Sources
+- iterate through title offsets and store the line numbers where each entry can be parsed
+- create a seperate method that builds seperate text files based on the vectors that have entries stored 
+- example:
+    - vectors: 
+        - source 1 entry lines: 0,14,20,23,31,45
+        - source 2 entry lines: 3,17,26,39 
+    - thread: 
+        - thread 1 goes to each entry line and synthesizes until line break for source 1
+            - writes to text file built around source 1
+        - thread 2 goes to each entry line and synthesizes until line break for source 2 
+            - writes to text file built around source 2
+
+
+
+
+

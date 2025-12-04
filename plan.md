@@ -32,6 +32,15 @@ Copy and understand
 
 
 # Organizing the Sources
+
+## Approach 1
+- simple nested arraylist structure
+- example
+    - ArrayList Struct Main
+        -  Title #1 ArrayList -- entry 1, entry 2, entry 3
+        -  Title #2 ArrayList -- entry 1, entry 2, entry 3
+
+## Approach 2 
 - iterate through title offsets and store the line numbers where each entry can be parsed
 - create a seperate method that builds seperate text files based on the vectors that have entries stored 
 - example:

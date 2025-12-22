@@ -53,6 +53,17 @@ Copy and understand
         - thread 2 goes to each entry line and synthesizes until line break for source 2 
             - writes to text file built around source 2
 
+# Overall Flow
+1. Controller node parses the highlights.
+    - stores vectors
+        - vector 1
+            - each element is a string
+            - each string is a book title
+            - make it alphabetical and implement binary search
+        - vector 2 
+            - each element is a vector of ints
+            - the index of each element refers to the 
+
 
 
 

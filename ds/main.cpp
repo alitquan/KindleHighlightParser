@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-int main(){
+void test1() { 
     std::cout << "starting ";
     kList test("Rondillingham");
     test.insertEnd("too good too fast",100,50); 
@@ -10,6 +10,10 @@ int main(){
     test.traverseNode(); 
     test.traverseNode();
     test.traverseNode();
+}
+
+int main(){
+    test1();
     return 0;
 } 
 

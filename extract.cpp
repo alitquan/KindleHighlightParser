@@ -19,7 +19,9 @@ int readFile(std::string filename) {
     // 3 is missing since 3rd line after line break is typically empty space
 
     std::string linebreak = "==========";
-    std::string line;;
+    std::string line;
+    std::string kTitle, kPage, kBody, kLoc; 
+    // need kDate 
     std::ifstream MyReadFile(filename);
 
     while (getline(MyReadFile, line)) {
@@ -34,13 +36,25 @@ int readFile(std::string filename) {
 
         // acquire the title here 
         if (lineNumber == TITLE) {
-            std::cout << "TITLE :" << line << std::endl;  
+            std::cout << "TITLE :" << line << std::endl;
+            kTitle = line; 
         } 
         // acquire the title here 
         if (lineNumber == META) {
             std::cout << "META:" << line << std::endl;  
+            // search through the line for page numbers and locations
+            // loc might be available for non=pdfs
+            // acquire the page number
+            // acquire the date
+        } 
+        // acquire the body here 
+        if (lineNumber == BODY) {
+            std::cout << "BODY:" << line << std::endl;  
         } 
         // std::cout << line << std::endl; 
+        //
+        //
+        // create the node using the kVariables
     } 
     return 0;
 } 

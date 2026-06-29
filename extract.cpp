@@ -41,42 +41,71 @@ int readFile(std::string filename) {
             std::cout << "TITLE :" << line << std::endl;
             kTitle = line; 
         } 
-        // acquire the title here 
+        // acquire the metadata here 
         if (lineNumber == META) {
             std::cout << "META:" << line << std::endl;  
-            auto pgNumber = line.find("page"); 
 
-            // adding 5 because 'page' takes up 4 chars. There is also white space before page number
-            // "page 65" 
-            pgNumber += 5;
+            // is the extract a highlight, bookmark, or note ? 
+            std::string type_marker = "- Your "; 
+            auto type_marker_start = line.find(type_marker);
+            std::string type_temp = line.substr(type_marker_start+ type_marker.length());
+            std::string extractType  = type_temp.substr(0,type_temp.find(" ")); 
+            std::cout << "META -- Note Type: " << extractType << std::endl;
 
-            std::cout << "META -- DETECTED PAGE NUMBER         : " << pgNumber << std::endl;
-            std::cout << "META -- DETECTED PAGE NUMBER (charAt): " << line[pgNumber]<< std::endl;
 
+
+            // extract the page number range 
+            std::string page_marker = "";
+            auto pos = line.find("page ");
+            if (pos != std::string::npos) {
+                page_marker = "page ";
+            } else {
+                pos = line.find("location ");
+                if (pos != std::string::npos) {
+                    page_marker = "location ";
+                }
+            }
+
+            auto pgNumber = line.find(page_marker);
+
+            if (pgNumber != std::string::npos) {
+                pgNumber += page_marker.length();
+
+                auto pageEnd = line.find(" |", pgNumber);
+                std::string page = line.substr(pgNumber, pageEnd - pgNumber);
+
+                std::cout << page << '\n';
+                std::cout << "META -- DETECTED PAGE NUMBER         : " << page<< std::endl;
+            }
 
 
             auto pgDate   = line.find("Added on"); 
-            std::cout << "META -- DETECTED DATE        : " << pgDate << std::endl;
+            auto date= line.substr(pgDate + dateMarker.size());
+            std::cout << "META -- DETECTED DATE        : " << date << std::endl;
 
-            // search through the line for page numbers and locations
-            // loc might be available for non=pdfs
-            // acquire the page number
-            std::string pgSubString = line.substr(pgNumber,pgDate); 
-            int pgNumberEnd = line.find(" ");
-            std::cout << "Page substring: " << pgSubString << std::endl;
-            int pgNum      = std::stoi(pgSubString.substr(0,pgNumberEnd+1));
-            std::cout << "Page number: " << pgNum << std::endl;
-            
+            // sample output: Monday, September 15, 2025 8:25:58 PM
+            auto _token1 = date.rfind(" ");
+            auto am_pm = date.substr(_token1);
+            auto _token2 = date.substr(0,_token1).rfind(" "); 
+            auto time_dhs = date.substr(_token2); 
+            std::cout << "META -- AM/PM : " << am_pm << std::endl; 
+            std::cout << "META -- HMS   : " << time_dhs << std::endl; 
+
             // acquire the date
         } 
         // acquire the body here 
-        if (lineNumber == BODY) {
+        if (lineNumber >= BODY) {
             std::cout << "BODY:" << line << std::endl;  
         } 
         // std::cout << line << std::endl; 
         //
         //
         // create the node using the kVariables
+        //
+        //
+        //
+        //
+        //
     } 
     return 0;
 } 

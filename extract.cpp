@@ -100,12 +100,11 @@ int readFile(std::string filename) {
         // std::cout << line << std::endl; 
         //
         //
+        //
+        
+        //check kList if it has a root
+        
         // create the node using the kVariables
-        //
-        //
-        //
-        //
-        //
     } 
     return 0;
 } 

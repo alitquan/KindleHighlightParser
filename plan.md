@@ -33,12 +33,23 @@ Copy and understand
 
 # Organizing the Sources
 
-## Approach 1
+## Approach 1 -- We are Going With This One
 - simple nested arraylist structure
 - example
     - ArrayList Struct Main
         -  Title #1 ArrayList -- entry 1, entry 2, entry 3
         -  Title #2 ArrayList -- entry 1, entry 2, entry 3
+
+### DataStructure Workflow
+TODO
+1. extract.cpp serves as the driver file
+2. it instantiates a kLot.cpp if it doesn't exist already
+    - make a way for kLot.cpp to persist 
+2. it instantiates a kList.cpp if it doesn't exist for a given title
+    - kLot should have a method to locate the kList that has a given title 
+    - kLot should create the kList if it doesn't have one
+    - kLot should save its state
+
 
 ## Approach 2 
 - iterate through title offsets and store the line numbers where each entry can be parsed
@@ -63,6 +74,13 @@ Copy and understand
         - vector 2 
             - each element is a vector of ints
             - the index of each element refers to the 
+
+
+# 09-26-26
+## Use time trim util function in node.
+## Create a linux style counter variable for the date. Update node cpp using that 
+## Create a list using entries from the book
+## Store kLists in a lot object 
 
 
 

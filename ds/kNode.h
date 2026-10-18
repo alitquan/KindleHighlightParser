@@ -12,6 +12,7 @@ class kNode {
         bool root; 
         int page;
         int loc; 
+        int time; 
         std::string body;
         std::tm tm{}; 
 

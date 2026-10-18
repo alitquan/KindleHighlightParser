@@ -82,7 +82,85 @@ TODO
 ## Create a list using entries from the book
 ## Store kLists in a lot object 
 
+# 10-18-26
+## Done Today  
+### Index Util Function Created 
+- index is being used -- combined values of mdy and hh:mm timestamps
+- mdy index does not utilize mins and hrs. 
+- mdy might be useful for computing other data and easily aggregate values 
 
+#### Original Output -- Uses **mdy-index** 
+0  ==========
+TITLE :﻿CCNP and CCIE Enterprise Core ENCOR 350-401
+META:- Your Highlight on page 84-84 | Added on Monday, September 15, 2025 8:25:37 PM
+META -- Note Type: Highlight
+84-84
+META -- DETECTED PAGE NUMBER         : 84-84
+META -- DETECTED DATE        : Monday, September 15, 2025 8:25:37 PM
+META -- AM/PM :  PM
+META -- HMS   :  8:25:37 PM
+rmDayFromDate Base:Monday, September 15, 2025 8:25:37 PM
+This is removed: September 15, 2025 8:25:37 PM
+CALCULATED -- TIMESTAMP: September 15, 2025 8:25:37 PM
+CALCULATED -- TIMESTAMP INDEX: 5780160
+BODY:MST Configuration MST is configured using the following process
+BODY:This is a test. I will love you.
+BODY:Stay away from me.
+6 -- Line Detected --
+6  ==========
+TITLE :﻿CCNP and CCIE Enterprise Core ENCOR 350-401
+META:- Your Note on page 84 | Added on Monday, September 15, 2025 8:25:58 PM
+META -- Note Type: Note
+84
+META -- DETECTED PAGE NUMBER         : 84
+META -- DETECTED DATE        : Monday, September 15, 2025 8:25:58 PM
+META -- AM/PM :  PM
+META -- HMS   :  8:25:58 PM
+rmDayFromDate Base:Monday, September 15, 2025 8:25:58 PM
+This is removed: September 15, 2025 8:25:58 PM
+CALCULATED -- TIMESTAMP: September 15, 2025 8:25:58 PM
+CALCULATED -- TIMESTAMP INDEX: 5780160
+BODY:Copy and understand
+BODY:This is a test. I will fight you.
+BODY:How are you?
+6 -- Line Detected --
+6  ==========
 
-
-
+#### New Output -- Output uses **index**
+0  ==========
+TITLE :﻿CCNP and CCIE Enterprise Core ENCOR 350-401
+META:- Your Highlight on page 84-84 | Added on Monday, September 15, 2025 8:25:37 PM
+META -- Note Type: Highlight
+84-84
+META -- DETECTED PAGE NUMBER         : 84-84
+META -- DETECTED DATE        : Monday, September 15, 2025 8:25:37 PM
+META -- AM/PM :  PM
+META -- HMS   :  8:25:37 PM
+rmDayFromDate Base:Monday, September 15, 2025 8:25:37 PM
+This is removed: September 15, 2025 8:25:37 PM
+kUtil -- PM detected
+CALCULATED -- TIMESTAMP: September 15, 2025 8:25:37 PM
+CALCULATED -- TIMESTAMP INDEX: 5863417
+BODY:MST Configuration MST is configured using the following process
+BODY:This is a test. I will love you.
+BODY:Stay away from me.
+6 -- Line Detected --
+6  ==========
+TITLE :﻿CCNP and CCIE Enterprise Core ENCOR 350-401
+META:- Your Note on page 84 | Added on Monday, September 15, 2025 8:25:58 PM
+META -- Note Type: Note
+84
+META -- DETECTED PAGE NUMBER         : 84
+META -- DETECTED DATE        : Monday, September 15, 2025 8:25:58 PM
+META -- AM/PM :  PM
+META -- HMS   :  8:25:58 PM
+rmDayFromDate Base:Monday, September 15, 2025 8:25:58 PM
+This is removed: September 15, 2025 8:25:58 PM
+kUtil -- PM detected
+CALCULATED -- TIMESTAMP: September 15, 2025 8:25:58 PM
+CALCULATED -- TIMESTAMP INDEX: 5863438
+BODY:Copy and understand
+BODY:This is a test. I will fight you.
+BODY:How are you?
+6 -- Line Detected --
+6  ==========

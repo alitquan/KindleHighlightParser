@@ -1,6 +1,7 @@
 #include <iostream> 
 #include <fstream>
 #include <string> 
+#include "ds/kUtil.h"
 
 int createFile(std::string filename) { 
     std::cout << "This is my name: " << filename << std::endl;
@@ -23,6 +24,7 @@ int readFile(std::string filename) {
     std::string dateMarker= "Added on";
     std::string line;
     std::string kTitle, kPage, kBody, kLoc; 
+
     // need kDate 
     std::ifstream MyReadFile(filename);
 
@@ -80,7 +82,9 @@ int readFile(std::string filename) {
 
 
             auto pgDate   = line.find("Added on"); 
-            auto date= line.substr(pgDate + dateMarker.size());
+            
+            // the 1 covers a whitespace
+            auto date= line.substr(pgDate + 1 + dateMarker.size());
             std::cout << "META -- DETECTED DATE        : " << date << std::endl;
 
             // sample output: Monday, September 15, 2025 8:25:58 PM
@@ -92,6 +96,10 @@ int readFile(std::string filename) {
             std::cout << "META -- HMS   : " << time_dhs << std::endl; 
 
             // acquire the date
+            std::string timestamp= rmDayFromDate(date); 
+            auto timestampIndex = dateToIndex(timestamp);
+            std::cout << "CALCULATED -- TIMESTAMP: " << timestamp << std::endl; 
+            std::cout << "CALCULATED -- TIMESTAMP INDEX: " << timestampIndex << std::endl; 
         } 
         // acquire the body here 
         if (lineNumber >= BODY) {
@@ -101,10 +109,14 @@ int readFile(std::string filename) {
         //
         //
         //
-        
-        //check kList if it has a root
-        
+        // IDEA -- create an extraction function here to decouple from code??? 
+        // create kLot 
+        // check if kList exists on the kot
+        //    create kList if needed 
+        // check kList if it has a root
+        // create kNode and add it to the kList 
         // create the node using the kVariables
+        //    add the index 
     } 
     return 0;
 } 

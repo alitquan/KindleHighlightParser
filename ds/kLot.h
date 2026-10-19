@@ -11,7 +11,7 @@ class kLot {
 
     private:
         // maybe have to change this
-        std::vector<kList> klists;
+        std::vector<kList*> klists;
         // maybe could be timestamp
         std::string id;
 
@@ -27,6 +27,7 @@ class kLot {
         // first do linear then binary. Make binary a different method
         void locateList(std::string); 
         kLot(std::string title);
+        ~kLot();
 
 };
 

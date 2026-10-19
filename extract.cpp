@@ -117,7 +117,7 @@ int readFile(std::string filename) {
         // IDEA -- create an extraction function here to decouple from code??? 
         // create kLot 
         kLot base ("generic");
-        bool created = base.addList("kLot");
+        bool created = base.addList(kTitle);
         std::cout << "kLot -- adding a title: " << created << std::endl;
 
         // check if kList exists on the kot

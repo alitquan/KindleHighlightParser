@@ -17,6 +17,7 @@ class kList {
         std::string returnTitle();
         void currentMove();
         void traverseNode();
+        void printContents();
         ~kList();
 };
 #endif 

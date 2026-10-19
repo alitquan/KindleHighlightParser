@@ -27,6 +27,10 @@ int readFile(std::string filename) {
     std::string line;
     std::string kTitle, kPage, kBody, kLoc; 
 
+    // management system
+    kLot base ("generic");
+
+
     // need kDate 
     std::ifstream MyReadFile(filename);
 
@@ -44,6 +48,14 @@ int readFile(std::string filename) {
         if (lineNumber == TITLE) {
             std::cout << "TITLE :" << line << std::endl;
             kTitle = line; 
+
+            // add title to creation if needed 
+            bool new_title= base.addList(kTitle);
+            if (new_title) {
+                std::cout << "kLot -- adding a title: " << new_title << std::endl;
+                base.printTitles();
+            }
+
         } 
         // acquire the metadata here 
         if (lineNumber == META) {
@@ -115,10 +127,6 @@ int readFile(std::string filename) {
         //
         //
         // IDEA -- create an extraction function here to decouple from code??? 
-        // create kLot 
-        kLot base ("generic");
-        bool created = base.addList(kTitle);
-        std::cout << "kLot -- adding a title: " << created << std::endl;
 
         // check if kList exists on the kot
         //    create kList if needed 
@@ -127,6 +135,8 @@ int readFile(std::string filename) {
         // create the node using the kVariables
         //    add the index 
     } 
+
+    base.printLists();
     return 0;
 } 
 

@@ -24,6 +24,20 @@ void kList::traverseNode() {
     std::cout << HEADER << std::endl << _output << std::endl << std::endl; 
 } 
 
+void kList::printContents(){ 
+    std::cout << "----kList::printContents()----" << std::endl;
+    std::cout << "-----current book: " << returnTitle() << std::endl;
+    kNode* temp = head;
+    while(temp != nullptr) {
+        std::cout << std::endl;
+        std::cout << temp->getAll() << std::endl; 
+        std::cout << std::endl;
+        temp = temp->getNext();
+    }
+    std::cout << "----kList::printContents() DONE ----" << std::endl;
+
+} 
+
 std::string kList::returnTitle() {
     return head->getTitle();
 }

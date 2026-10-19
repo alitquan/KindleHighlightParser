@@ -77,10 +77,11 @@ TODO
 
 
 # 09-26-26
-## Use time trim util function in node.
-## Create a linux style counter variable for the date. Update node cpp using that 
-## Create a list using entries from the book
-## Store kLists in a lot object 
+## TODO
+Use time trim util function in node.
+Create a linux style counter variable for the date. Update node cpp using that 
+Create a list using entries from the book
+Store kLists in a lot object 
 
 # 10-18-26
 ## Done Today  
@@ -127,6 +128,7 @@ BODY:How are you?
 6  ==========
 
 #### New Output -- Output uses **index**
+
 0  ==========
 TITLE :﻿CCNP and CCIE Enterprise Core ENCOR 350-401
 META:- Your Highlight on page 84-84 | Added on Monday, September 15, 2025 8:25:37 PM
@@ -164,3 +166,18 @@ BODY:This is a test. I will fight you.
 BODY:How are you?
 6 -- Line Detected --
 6  ==========
+
+# 10-19-26 
+## Progress 
+### Finished destructor cascade: kLot->kList->kNode 
+### Instantiated kLot inside the driver file 
+### Fixed up pointer/reference issues with the linked list 
+
+## TODO 
+### Need to test out kList traversal? 
+### Maybe might need to make kNodes doubly-linked? 
+### Fix the node getAll() methods -- it looks like the body is not coming 
+
+
+
+

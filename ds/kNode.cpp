@@ -24,6 +24,10 @@ std::string kNode::getBody() const {
     return body;
 }
 
+std::string kNode::getTitle() const {
+    return title; 
+} 
+
 std::string kNode::getAll() const {
     std::string retString; 
 

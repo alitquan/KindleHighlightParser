@@ -24,6 +24,10 @@ void kList::traverseNode() {
     std::cout << HEADER << std::endl << _output << std::endl << std::endl; 
 } 
 
+std::string kList::returnTitle() {
+    return head->getTitle();
+}
+
 kList::~kList() {
     kNode* current = head; 
     while (current != nullptr) {

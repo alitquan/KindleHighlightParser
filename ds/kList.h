@@ -14,6 +14,7 @@ class kList {
         kList(const std::string title);
         // create a node based on the arguments and insert at the end of the list 
         void insertEnd(std::string _body, int _page, int _loc);
+        std::string returnTitle();
         void currentMove();
         void traverseNode();
         ~kList();

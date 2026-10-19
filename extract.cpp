@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string> 
 #include "ds/kUtil.h"
+#include "ds/kLot.h" 
+
 
 int createFile(std::string filename) { 
     std::cout << "This is my name: " << filename << std::endl;
@@ -105,12 +107,19 @@ int readFile(std::string filename) {
         if (lineNumber >= BODY) {
             std::cout << "BODY:" << line << std::endl;  
         } 
+
+        // check for kLists 
+        // cache results that work or have been used recently? 
         // std::cout << line << std::endl; 
         //
         //
         //
         // IDEA -- create an extraction function here to decouple from code??? 
         // create kLot 
+        kLot base ("generic");
+        bool created = base.addList("kLot");
+        std::cout << "kLot -- adding a title: " << created << std::endl;
+
         // check if kList exists on the kot
         //    create kList if needed 
         // check kList if it has a root

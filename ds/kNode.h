@@ -26,6 +26,8 @@ class kNode {
     kNode* getNext();
     // return the passage from within the node
     std::string getBody() const;
+    // return the title of the book
+    std::string getTitle() const; 
     // return entire thing
     std::string getAll() const; 
 };

@@ -75,6 +75,46 @@ TODO
             - each element is a vector of ints
             - the index of each element refers to the 
 
+#### New Output -- Output uses **index**
+
+0  ==========
+TITLE :﻿CCNP and CCIE Enterprise Core ENCOR 350-401
+META:- Your Highlight on page 84-84 | Added on Monday, September 15, 2025 8:25:37 PM
+META -- Note Type: Highlight
+84-84
+META -- DETECTED PAGE NUMBER         : 84-84
+META -- DETECTED DATE        : Monday, September 15, 2025 8:25:37 PM
+META -- AM/PM :  PM
+META -- HMS   :  8:25:37 PM
+rmDayFromDate Base:Monday, September 15, 2025 8:25:37 PM
+This is removed: September 15, 2025 8:25:37 PM
+kUtil -- PM detected
+CALCULATED -- TIMESTAMP: September 15, 2025 8:25:37 PM
+CALCULATED -- TIMESTAMP INDEX: 5863417
+BODY:MST Configuration MST is configured using the following process
+BODY:This is a test. I will love you.
+BODY:Stay away from me.
+6 -- Line Detected --
+6  ==========
+TITLE :﻿CCNP and CCIE Enterprise Core ENCOR 350-401
+META:- Your Note on page 84 | Added on Monday, September 15, 2025 8:25:58 PM
+META -- Note Type: Note
+84
+META -- DETECTED PAGE NUMBER         : 84
+META -- DETECTED DATE        : Monday, September 15, 2025 8:25:58 PM
+META -- AM/PM :  PM
+META -- HMS   :  8:25:58 PM
+rmDayFromDate Base:Monday, September 15, 2025 8:25:58 PM
+This is removed: September 15, 2025 8:25:58 PM
+kUtil -- PM detected
+CALCULATED -- TIMESTAMP: September 15, 2025 8:25:58 PM
+CALCULATED -- TIMESTAMP INDEX: 5863438
+BODY:Copy and understand
+BODY:This is a test. I will fight you.
+BODY:How are you?
+6 -- Line Detected --
+6  ==========
+
 
 # 09-26-26
 ## TODO
@@ -126,58 +166,6 @@ BODY:This is a test. I will fight you.
 BODY:How are you?
 6 -- Line Detected --
 6  ==========
-
-#### New Output -- Output uses **index**
-
-0  ==========
-TITLE :﻿CCNP and CCIE Enterprise Core ENCOR 350-401
-META:- Your Highlight on page 84-84 | Added on Monday, September 15, 2025 8:25:37 PM
-META -- Note Type: Highlight
-84-84
-META -- DETECTED PAGE NUMBER         : 84-84
-META -- DETECTED DATE        : Monday, September 15, 2025 8:25:37 PM
-META -- AM/PM :  PM
-META -- HMS   :  8:25:37 PM
-rmDayFromDate Base:Monday, September 15, 2025 8:25:37 PM
-This is removed: September 15, 2025 8:25:37 PM
-kUtil -- PM detected
-CALCULATED -- TIMESTAMP: September 15, 2025 8:25:37 PM
-CALCULATED -- TIMESTAMP INDEX: 5863417
-BODY:MST Configuration MST is configured using the following process
-BODY:This is a test. I will love you.
-BODY:Stay away from me.
-6 -- Line Detected --
-6  ==========
-TITLE :﻿CCNP and CCIE Enterprise Core ENCOR 350-401
-META:- Your Note on page 84 | Added on Monday, September 15, 2025 8:25:58 PM
-META -- Note Type: Note
-84
-META -- DETECTED PAGE NUMBER         : 84
-META -- DETECTED DATE        : Monday, September 15, 2025 8:25:58 PM
-META -- AM/PM :  PM
-META -- HMS   :  8:25:58 PM
-rmDayFromDate Base:Monday, September 15, 2025 8:25:58 PM
-This is removed: September 15, 2025 8:25:58 PM
-kUtil -- PM detected
-CALCULATED -- TIMESTAMP: September 15, 2025 8:25:58 PM
-CALCULATED -- TIMESTAMP INDEX: 5863438
-BODY:Copy and understand
-BODY:This is a test. I will fight you.
-BODY:How are you?
-6 -- Line Detected --
-6  ==========
-
-# 10-19-26 
-## Progress 
-### Finished destructor cascade: kLot->kList->kNode 
-### Instantiated kLot inside the driver file 
-### Fixed up pointer/reference issues with the linked list 
-
-## TODO 
-### Need to test out kList traversal? 
-### Maybe might need to make kNodes doubly-linked? 
-### Fix the node getAll() methods -- it looks like the body is not coming 
-
 
 
 

@@ -3,6 +3,7 @@
 #include <string> 
 #include "ds/kUtil.h"
 #include "ds/kLot.h" 
+#include "ds/kNode.h"
 
 
 int createFile(std::string filename) { 
@@ -25,10 +26,14 @@ int readFile(std::string filename) {
     std::string pageMarker= "page";
     std::string dateMarker= "Added on";
     std::string line;
-    std::string kTitle, kPage, kBody, kLoc; 
+    std::string kTitle, kPage, kBody, kLoc, kTime; 
+    int kTimeIndex;
 
     // management system
     kLot base ("generic");
+
+    // maybe delete 
+    kNode temp; 
 
 
     // need kDate 
@@ -50,7 +55,7 @@ int readFile(std::string filename) {
             kTitle = line; 
 
             // add title to creation if needed 
-            bool new_title= base.addList(kTitle);
+            kList* new_title= base.addList(kTitle);
             if (new_title) {
                 std::cout << "kLot -- adding a title: " << new_title << std::endl;
                 base.printTitles();
@@ -92,6 +97,7 @@ int readFile(std::string filename) {
 
                 std::cout << page << '\n';
                 std::cout << "META -- DETECTED PAGE NUMBER         : " << page<< std::endl;
+                kPage = page;
             }
 
 
@@ -114,20 +120,26 @@ int readFile(std::string filename) {
             auto timestampIndex = dateToIndex(timestamp);
             std::cout << "CALCULATED -- TIMESTAMP: " << timestamp << std::endl; 
             std::cout << "CALCULATED -- TIMESTAMP INDEX: " << timestampIndex << std::endl; 
+
+            kTime = timestamp;
+            kTimeIndex = timestampIndex;
         } 
+
         // acquire the body here 
         if (lineNumber >= BODY) {
             std::cout << "BODY:" << line << std::endl;  
+            kBody += line;
+            kBody += " ";
         } 
-
-        // check for kLists 
-        // cache results that work or have been used recently? 
+        
+        // SUGGESTION: check for kLists -- cache results that work or have been used recently? 
         // std::cout << line << std::endl; 
         //
         //
         //
         // IDEA -- create an extraction function here to decouple from code??? 
 
+        // TODO
         // check if kList exists on the kot
         //    create kList if needed 
         // check kList if it has a root
@@ -135,6 +147,10 @@ int readFile(std::string filename) {
         // create the node using the kVariables
         //    add the index 
     } 
+    temp = kNode(kBody, kPage, kLoc, kTimeIndex, kTime);
+    std::cout << temp.toString();
+
+    //TODO add kNode to list and confirm its addition
 
     base.printLists();
     return 0;

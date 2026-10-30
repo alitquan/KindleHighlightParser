@@ -5,8 +5,8 @@
 // create a new list that represent entries of a book
 kList::kList(std::string title): head(new kNode(title)),tail(head),current(head){}
 
-void kList::insertEnd(std::string _body, int _page, int _loc) {
-    kNode* newNode = new kNode(_body, _page, _loc); 
+void kList::insertEnd(std::string _body, std::string _page, std::string _loc, int _timeIndex, std::string _timestamp) {
+    kNode* newNode = new kNode(_body, _page, _loc, _timeIndex, _timestamp); 
     tail->setNext(newNode);
     tail = newNode; 
 }

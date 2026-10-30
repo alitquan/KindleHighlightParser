@@ -6,20 +6,18 @@ kLot::kLot(std::string title) {
     id = title;
 } 
 
-bool kLot::addList(std::string title) {
+kList* kLot::addList(std::string title) {
 
     for (kList* book_list : klists) {
         if (book_list->returnTitle() == title) {
             std::cout << "Title Already Exists" << std::endl;
-            return false; 
+            return book_list; 
         } 
     } 
-
     kList* new_list = new kList(title);
     klists.push_back(new_list);
     numTitles++;
-
-    return true;
+    return new_list;
 }
 
 // diagnostic

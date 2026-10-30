@@ -23,10 +23,10 @@ class kLot {
         void loadData();
 
         // adding a list with passages for each book. Ideally should be done alphabetically
-        bool addList(std::string); 
+        kList* addList(std::string); 
         // getting the output of quotes for each book
         void traverseList(int); 
-        // helper method -- find index of kLot that contains a list for the specified book
+        // TODO: helper method -- find index of kLot that contains a list for the specified book
         // first do linear then binary. Make binary a different method
         void locateList(std::string); 
         void printTitles();

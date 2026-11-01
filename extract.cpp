@@ -26,7 +26,7 @@ int readFile(std::string filename) {
     std::string pageMarker= "page";
     std::string dateMarker= "Added on";
     std::string line;
-    std::string kTitle, kPage, kBody, kLoc, kTime; 
+    std::string kTitle, kExtractType, kPage, kBody, kLoc, kTime; 
     int kTimeIndex;
 
     // management system
@@ -72,6 +72,7 @@ int readFile(std::string filename) {
             std::string type_temp = line.substr(type_marker_start+ type_marker.length());
             std::string extractType  = type_temp.substr(0,type_temp.find(" ")); 
             std::cout << "META -- Note Type: " << extractType << std::endl;
+            kExtractType = extractType;
 
 
 
@@ -97,7 +98,16 @@ int readFile(std::string filename) {
 
                 std::cout << page << '\n';
                 std::cout << "META -- DETECTED PAGE NUMBER         : " << page<< std::endl;
-                kPage = page;
+
+                if (page_marker == "page ") {
+                    kPage = page;
+                }
+
+                // need to test out a sample with location to be sure
+                if (page_marker == "location ") {
+                    kLoc = page;
+                }
+
             }
 
 
@@ -117,7 +127,7 @@ int readFile(std::string filename) {
 
             // acquire the date
             std::string timestamp= rmDayFromDate(date); 
-            auto timestampIndex = dateToIndex(timestamp);
+            int timestampIndex = dateToIndex(timestamp);
             std::cout << "CALCULATED -- TIMESTAMP: " << timestamp << std::endl; 
             std::cout << "CALCULATED -- TIMESTAMP INDEX: " << timestampIndex << std::endl; 
 
@@ -147,7 +157,7 @@ int readFile(std::string filename) {
         // create the node using the kVariables
         //    add the index 
     } 
-    temp = kNode(kBody, kPage, kLoc, kTimeIndex, kTime);
+    temp = kNode(kBody, kExtractType, kPage, kLoc, kTimeIndex, kTime);
     std::cout << temp.toString();
 
     //TODO add kNode to list and confirm its addition

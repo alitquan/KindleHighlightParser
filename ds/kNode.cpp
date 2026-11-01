@@ -6,7 +6,9 @@ kNode::kNode(std::string _title):title(_title),root(true){}
 
 kNode::kNode() {
     body = "";
+    type = "";
     page = "";
+    type = "";
     loc = "";
     timeIndex = 0;
     timestamp = "";
@@ -16,6 +18,9 @@ kNode::kNode() {
 const std::string kNode::toString() {
     std::string retString;
     retString += "===kNode START===+"; 
+    retString += "\n";
+    retString += "Type: ";
+    retString += type; 
     retString += "\n";
     retString += "Body: ";
     retString += body; 
@@ -27,7 +32,7 @@ const std::string kNode::toString() {
     retString += loc; 
     retString += "\n";
     retString += "Time Index: ";
-    retString += timeIndex; 
+    retString += std::to_string(timeIndex);
     retString += "\n";
     retString += "Timestamp: ";
     retString += timestamp; 
@@ -37,8 +42,9 @@ const std::string kNode::toString() {
 }
 
 // need to integrate time
-kNode::kNode(std::string _body, std::string _page, std::string _loc, int _timeIndex, std::string _timestamp) { 
+kNode::kNode(std::string _body, std::string _type, std::string _page, std::string _loc, int _timeIndex, std::string _timestamp) { 
     body = _body;
+    type = _type;
     page = _page;
     loc  = _loc;
     timeIndex = _timeIndex;

@@ -13,7 +13,7 @@ class kList {
         // create the root node of the book's annotation list
         kList(const std::string title);
         // create a node based on the arguments and insert at the end of the list 
-        void insertEnd(std::string _body, std::string _page, std::string _loc, int timeIndex, std::string timestamp);
+        void insertEnd(std::string _body, std::string _type, std::string _page, std::string _loc, int timeIndex, std::string timestamp);
         std::string returnTitle();
         void currentMove();
         void traverseNode();

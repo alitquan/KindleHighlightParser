@@ -10,21 +10,22 @@ class kNode {
     public: 
         std::string title, timestamp, page, loc, type; 
         bool root; 
-        // maybe add page range string representation function
         int pageEnd;
+
         int timeIndex; 
 
         std::string body;
         std::tm tm{}; 
 
     kNode();
+
     // creates a new node with a title and sets it at root 
     kNode(const std::string _title);
 
+    kNode(const std::string _body, std::string _type, std::string _page, std::string _loc, int timeIndex, std::string timestamp);
+
     const std::string toString();
 
-    // need to integrate time
-    kNode(const std::string _body, std::string _type, std::string _page, std::string _loc, int timeIndex, std::string timestamp);
 
     // set which node is the next node 
     void setNext(kNode* _next);

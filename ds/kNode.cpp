@@ -1,9 +1,8 @@
 #include "kNode.h"
 #include <string> 
-// creates a new node with a title and sets it at root 
-kNode::kNode(std::string _title):title(_title),root(true){}  
 
 
+// default constructor
 kNode::kNode() {
     body = "";
     type = "";
@@ -14,6 +13,9 @@ kNode::kNode() {
     timestamp = "";
     next = nullptr;
 }
+
+// creates a new node with a title and sets it at root 
+kNode::kNode(std::string _title):title(_title),next(nullptr){}  
 
 const std::string kNode::toString() {
     std::string retString;

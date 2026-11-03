@@ -6,6 +6,8 @@ kLot::kLot(std::string title) {
     id = title;
 } 
 
+// returns the list if it already exists 
+// returns pointer to new list if it doesn't exist
 kList* kLot::addList(std::string title) {
 
     for (kList* book_list : klists) {
@@ -23,13 +25,15 @@ kList* kLot::addList(std::string title) {
 // diagnostic
 void kLot::printTitles() { 
     std::cout << std::endl; 
-    std::cout << "----getBooks()---" << std::endl; 
+    std::cout << "------ getBooks() START ------" << std::endl; 
     std::cout << "----count()--->" << numTitles << std::endl; 
     for (kList* book_list : klists) {
         std::cout << "getBooks(): " << book_list->returnTitle() << std::endl; 
     }
+    std::cout << "------ getBooks() END ------" << std::endl; 
     std::cout << std::endl; 
 } 
+
 
 void kLot::printLists() {
     for (kList* book_list : klists) {

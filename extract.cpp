@@ -33,7 +33,7 @@ int readFile(std::string filename) {
     kLot base ("generic");
 
     // maybe delete 
-    kNode temp; 
+    kList* new_title = nullptr;
 
 
     // need kDate 
@@ -43,7 +43,30 @@ int readFile(std::string filename) {
         if (line.compare(linebreak)==0) {
             std::cout << lineNumber << " -- Line Detected -- " << std::endl; 
             std::cout << lineNumber << "  " << line << std::endl;
+
+            // Save the completed Kindle entry
+            if (new_title != nullptr && !kBody.empty()) {
+                new_title->insertEnd(
+                    kBody,
+                    kExtractType,
+                    kPage,
+                    kLoc,
+                    kTimeIndex,
+                    kTime
+                );
+            }
+
+            // Reset variables for the next entry
+            kTitle.clear();
+            kExtractType.clear();
+            kPage.clear();
+            kLoc.clear();
+            kBody.clear();
+            kTime.clear();
+            kTimeIndex = 0;
+            new_title = nullptr;
             lineNumber = 0;
+            continue;
         }
         else {
             lineNumber++;
@@ -55,7 +78,7 @@ int readFile(std::string filename) {
             kTitle = line; 
 
             // add title to creation if needed 
-            kList* new_title= base.addList(kTitle);
+            new_title = base.addList(kTitle);
             if (new_title) {
                 std::cout << "kLot -- adding a title: " << new_title << std::endl;
                 base.printTitles();
@@ -66,7 +89,8 @@ int readFile(std::string filename) {
         if (lineNumber == META) {
             std::cout << "META:" << line << std::endl;  
 
-            // is the extract a highlight, bookmark, or note ? 
+
+            // acquire highlight type 
             std::string type_marker = "- Your "; 
             auto type_marker_start = line.find(type_marker);
             std::string type_temp = line.substr(type_marker_start+ type_marker.length());
@@ -74,9 +98,7 @@ int readFile(std::string filename) {
             std::cout << "META -- Note Type: " << extractType << std::endl;
             kExtractType = extractType;
 
-
-
-            // extract the page number range 
+            // acquire the page number range 
             std::string page_marker = "";
             auto pos = line.find("page ");
             if (pos != std::string::npos) {
@@ -130,7 +152,6 @@ int readFile(std::string filename) {
             int timestampIndex = dateToIndex(timestamp);
             std::cout << "CALCULATED -- TIMESTAMP: " << timestamp << std::endl; 
             std::cout << "CALCULATED -- TIMESTAMP INDEX: " << timestampIndex << std::endl; 
-
             kTime = timestamp;
             kTimeIndex = timestampIndex;
         } 
@@ -148,17 +169,25 @@ int readFile(std::string filename) {
         //
         //
         // IDEA -- create an extraction function here to decouple from code??? 
-
-        // TODO
-        // check if kList exists on the kot
-        //    create kList if needed 
-        // check kList if it has a root
-        // create kNode and add it to the kList 
-        // create the node using the kVariables
-        //    add the index 
     } 
-    temp = kNode(kBody, kExtractType, kPage, kLoc, kTimeIndex, kTime);
-    std::cout << temp.toString();
+    // temp = kNode(kBody, kExtractType, kPage, kLoc, kTimeIndex, kTime);
+    //
+    if (new_title != nullptr && !kBody.empty()) {
+        new_title->insertEnd(
+            kBody,
+            kExtractType,
+            kPage,
+            kLoc,
+            kTimeIndex,
+            kTime
+        );
+
+        new_title->printContents();
+    }
+    //
+    // new_title->insertEnd(kBody, kExtractType, kPage, kLoc, kTimeIndex, kTime);
+    // new_title->printContents();
+    // std::cout << temp.toString();
 
     //TODO add kNode to list and confirm its addition
 

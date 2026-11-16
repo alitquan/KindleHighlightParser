@@ -4,7 +4,7 @@
 #include "ds/kUtil.h"
 #include "ds/kLot.h" 
 #include "ds/kNode.h"
-
+#include "util/cli.h"
 
 int createFile(std::string filename) { 
     std::cout << "This is my name: " << filename << std::endl;
@@ -14,7 +14,7 @@ int createFile(std::string filename) {
     return 0;
 } 
 
-int readFile(std::string filename) {
+kLot readFile(std::string filename) {
     int lineNumber = 0;
     // offset variables (assume that line break is index 0) 
     int TITLE = 1; 
@@ -29,10 +29,8 @@ int readFile(std::string filename) {
     std::string kTitle, kExtractType, kPage, kBody, kLoc, kTime; 
     int kTimeIndex;
 
-    // management system
+    // management system 
     kLot base ("generic");
-
-    // maybe delete 
     kList* new_title = nullptr;
 
 
@@ -170,8 +168,8 @@ int readFile(std::string filename) {
         //
         // IDEA -- create an extraction function here to decouple from code??? 
     } 
-    // temp = kNode(kBody, kExtractType, kPage, kLoc, kTimeIndex, kTime);
-    //
+
+    // edge case -- last entry 
     if (new_title != nullptr && !kBody.empty()) {
         new_title->insertEnd(
             kBody,
@@ -181,18 +179,12 @@ int readFile(std::string filename) {
             kTimeIndex,
             kTime
         );
-
         new_title->printContents();
     }
-    //
-    // new_title->insertEnd(kBody, kExtractType, kPage, kLoc, kTimeIndex, kTime);
-    // new_title->printContents();
-    // std::cout << temp.toString();
 
-    //TODO add kNode to list and confirm its addition
 
     base.printLists();
-    return 0;
+    return base;
 } 
 
 
@@ -208,6 +200,20 @@ int test2() {
 
 } 
 
+int test3() {
+    readFile("tests/clippings1.txt");
+    return 0;
+}
+
+int test4() {
+    cli terminal;
+    kLot one = readFile("tests/clippings1.txt");
+    terminal.runcli();
+    return 0;
+
+}
+
 int main() {
-    test2();
+    // test2();
+    test4();
 }

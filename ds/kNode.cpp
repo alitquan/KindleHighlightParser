@@ -19,8 +19,6 @@ kNode::kNode(std::string _title):title(_title),next(nullptr){}
 
 const std::string kNode::toString() {
     std::string retString;
-    retString += "===kNode START===+"; 
-    retString += "\n";
     retString += "Type: ";
     retString += type; 
     retString += "\n";
@@ -39,7 +37,6 @@ const std::string kNode::toString() {
     retString += "Timestamp: ";
     retString += timestamp; 
     retString += "\n";
-    std::cout << "===kNode END ===+"; 
     return retString;
 }
 

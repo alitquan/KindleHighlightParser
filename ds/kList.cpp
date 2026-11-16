@@ -4,6 +4,7 @@
 
 // create a new list that represent entries of a book
 kList::kList(std::string _title): 
+    title(_title),    
     head(new kNode(_title)),
     tail(head),
     current(head){
@@ -58,8 +59,9 @@ void kList::traverseNode() {
 } 
 
 void kList::printContents(){ 
-    std::cout << "\n=== TRAVERSAL DEBUG ===" << std::endl;
+    std::cout << "\n=== kList TRAVERSAL ===" << std::endl;
     std::cout << "List address: " << this << std::endl;
+    std::cout << "Title: " << title << std::endl;
     std::cout << "Head: " << head << std::endl;
     std::cout << "Tail: " << tail << std::endl;
 

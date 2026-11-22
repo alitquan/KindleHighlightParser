@@ -4,10 +4,16 @@
 #include <vector>
 #include "cli.h"
 
+
+// constants
+std::string helpList = "    - ";
+
+cli::cli(AppInterface* target) {
+    interface = target;
+}
+
 //helpers 
 std::vector<std::string> tokenize (std::string cli_input) {
-    std::cout << "Debugging -- tokenize()" << std::endl; 
-
     int current = 0;
     int counter = 0;
     std::vector<char> word_buffer; 
@@ -29,10 +35,12 @@ std::vector<std::string> tokenize (std::string cli_input) {
             word_buffer.push_back(_char);
         } 
     } 
-    for (int token= 0; token < retVal.size(); token++) {
-        std::cout <<token<< std::endl;
-        std::cout << retVal [token]<< std::endl;
-    }
+
+    // debugging 
+    // for (int token= 0; token < retVal.size(); token++) {
+    //     std::cout <<token<< std::endl;
+    //     std::cout << retVal [token]<< std::endl;
+    // }
 
     if (!word_buffer.empty()) {
         std::string token;
@@ -62,20 +70,56 @@ int cli::runcli() {
             continue;
         } 
 
-        std::string actual_command = tokens[0];
+        std::string root_command = tokens[0];
 
 
         if (command == "exit") {
             break;
         }
-        if (actual_command == "list") {
-            std::cout << "LIST command input";
+        if (root_command == "list") {
             if (tokens.size() < 2 ) {
                 std::cout <<"available options: " << std::endl; 
-                std::cout << "lot" << std::endl;
-                std::cout << "lots" << std::endl;
+                std::cout << helpList << "lot" << std::endl;
+                std::cout << helpList << "lots" << std::endl;
+                std::cout << helpList << "list" << std::endl;
+            }
+            else {
+                std::string firstArg = tokens[1];
+                if (firstArg == "lot" || firstArg == "lots") {
+                    interface->listLot();
+                }
+                else if (firstArg == "list") {
+                    std::cout << "Gettin current list: " << std::endl;
+                    std::cout << (interface->getCurrentList()) << std::endl;
+                }
+                else {
+                    std::cout << "see runcli -- firstArg == list" << std::endl; 
+
+                } 
+
+
             }
         }
+        if (root_command == "set") { 
+            if (tokens.size() < 2 ){
+                std::cout <<"available options: " << std::endl; 
+                std::cout << helpList << "lot" << std::endl;
+                std::cout << helpList << "lots" << std::endl;
+                std::cout << helpList << "list" << std::endl;
+            }
+            else {
+                std::string firstArg = tokens[1];
+                if (firstArg == "list") {
+                    if (tokens.size() < 3 ){
+                        std::cout <<"You need more args " << std::endl; 
+                        continue;
+                        
+                    }
+                    std::string selectedList = tokens[2];
+                    interface->loadList(selectedList);
+                }
+            }
+        } 
         if (command == "help" || command == "?") {
             helpCli();
         } 

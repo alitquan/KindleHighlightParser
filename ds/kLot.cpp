@@ -6,6 +6,24 @@ kLot::kLot(std::string title) {
     id = title;
 } 
 
+void kLot::listData() {
+    std::cout <<"========" << std::endl;
+    std::cout << "Lot ID: " << id << std::endl;
+    std::cout << "Number of Titles: " << numTitles << std::endl;
+    for (kList* list: klists) {
+        std::cout << "   - " << (list->returnTitle()) << std::endl;
+    }
+    std::cout <<"========" << std::endl;
+}
+
+
+bool kLot::checkID(std::string _id) {
+    if (id == _id) {
+        return true;
+    }
+    return false;
+} 
+
 // returns the list if it already exists 
 // returns pointer to new list if it doesn't exist
 kList* kLot::addList(std::string title) {
@@ -20,6 +38,15 @@ kList* kLot::addList(std::string title) {
     klists.push_back(new_list);
     numTitles++;
     return new_list;
+}
+
+kList* kLot::getList(std::string title) {
+    for (kList* book_list : klists) {
+        if (book_list->returnTitle() == title) {
+            return book_list; 
+        } 
+    } 
+    return nullptr;
 }
 
 // diagnostic

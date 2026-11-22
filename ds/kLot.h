@@ -21,9 +21,12 @@ class kLot {
     public:
         // tbd 
         void loadData();
+        void listData();
+        bool checkID(std::string _id);
 
         // adding a list with passages for each book. Ideally should be done alphabetically
         kList* addList(std::string); 
+        kList* getList(std::string); 
         // getting the output of quotes for each book
         void traverseList(int); 
         // TODO: helper method -- find index of kLot that contains a list for the specified book

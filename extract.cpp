@@ -5,6 +5,7 @@
 #include "ds/kLot.h" 
 #include "ds/kNode.h"
 #include "util/cli.h"
+#include "AppInterface.h"
 
 int createFile(std::string filename) { 
     std::cout << "This is my name: " << filename << std::endl;
@@ -205,15 +206,27 @@ int test3() {
     return 0;
 }
 
-int test4() {
-    cli terminal;
+
+int test5() {
+    AppInterface app;
     kLot one = readFile("tests/clippings1.txt");
+    app.addLot(&one);
+    app.listLot();
+    cli terminal = cli(&app);
     terminal.runcli();
     return 0;
+}
 
+int test6() {
+    AppInterface app;
+    kLot one = readFile("tests/clippings1.txt");
+    app.addLot(&one);
+    app.listLot();
+    cli terminal = cli(&app);
+    terminal.runcli();
+    return 0;
 }
 
 int main() {
-    // test2();
-    test4();
+    test5();
 }

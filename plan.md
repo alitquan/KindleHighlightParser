@@ -168,4 +168,26 @@ BODY:How are you?
 6  ==========
 
 
+# Novemeber 19 2026
+- added tokenizer 
+- need to pass vector of lots to the CLI for this to work ?> 
+
+# November 11 2026
+## Done 
+- more work on CLI 
+- creating interface that CLI can access 
+- making progress towards the sort 
+- modifying the test data 
+## TODO 
+[] passing multiple words to the tokenizer 
+[] complete testing of SET command in tokenizer 
+[] upadte the help command 
+
+
+
+
+
+
+
+
 

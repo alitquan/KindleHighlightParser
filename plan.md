@@ -172,16 +172,27 @@ BODY:How are you?
 - added tokenizer 
 - need to pass vector of lots to the CLI for this to work ?> 
 
-# November 11 2026
+# November 21 2026
 ## Done 
 - more work on CLI 
 - creating interface that CLI can access 
 - making progress towards the sort 
 - modifying the test data 
 ## TODO 
-[] passing multiple words to the tokenizer 
+[X] passing multiple words to the tokenizer 
 [] complete testing of SET command in tokenizer 
-[] upadte the help command 
+[] update the help command 
+
+# November 23 
+- quote flag-system added to the CLI and tested 
+## TODO
+[] Sorting Algorithm
+    - approach:
+        1. store duplicate kList in a vector
+            - vector just has pointers to the kNodes 
+        2. create a target vector 
+        3. run quicksort / merge sort on the duplicate vector 
+        4. store the sorted vector in memory 
 
 
 

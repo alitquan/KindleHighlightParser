@@ -18,17 +18,27 @@ std::vector<std::string> tokenize (std::string cli_input) {
     int counter = 0;
     std::vector<char> word_buffer; 
     std::vector<std::string> retVal;
+    bool quote = false; 
 
     for (int i = 0; i < cli_input.length(); i++) {
         char _char = cli_input[i]; 
-        if (_char == ' ' || _char == '\n') { 
-            std::string token;
 
-            for (int j = 0; j < word_buffer.size(); j++) {
-                token += word_buffer[j];
+        if (_char == '"') {
+            quote = !quote;
+            continue;
+        }
+
+        if (quote == false && (_char == ' ' || _char == '\n')) { 
+
+            if (!word_buffer.empty()) { 
+                std::string token;
+
+                for (int j = 0; j < word_buffer.size(); j++) {
+                    token += word_buffer[j];
+                }
+                retVal.push_back(token); 
+                word_buffer.clear();
             }
-            retVal.push_back(token); 
-            word_buffer.clear();
         } 
 
         else {
@@ -36,11 +46,6 @@ std::vector<std::string> tokenize (std::string cli_input) {
         } 
     } 
 
-    // debugging 
-    // for (int token= 0; token < retVal.size(); token++) {
-    //     std::cout <<token<< std::endl;
-    //     std::cout << retVal [token]<< std::endl;
-    // }
 
     if (!word_buffer.empty()) {
         std::string token;
@@ -52,6 +57,11 @@ std::vector<std::string> tokenize (std::string cli_input) {
         retVal.push_back(token);
     }
 
+    // debugging 
+    for (int token= 0; token < retVal.size(); token++) {
+        std::cout <<token<< std::endl;
+        std::cout << retVal [token]<< std::endl;
+    }
     return retVal;
 }
 
@@ -124,7 +134,6 @@ int cli::runcli() {
             helpCli();
         } 
 
-        tokenize(command);
     }
 
     return 0;
